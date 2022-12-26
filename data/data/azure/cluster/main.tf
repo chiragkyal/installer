@@ -50,6 +50,7 @@ module "master" {
 
   use_ipv4 = var.use_ipv4
   use_ipv6 = var.use_ipv6
+  tags = local.tags
 }
 
 module "dns" {
@@ -68,4 +69,5 @@ module "dns" {
 
   use_ipv4 = var.use_ipv4
   use_ipv6 = var.use_ipv6
+  tags = local.tags
 }

@@ -8,6 +8,7 @@ resource "azurerm_lb" "internal" {
   name                = "${var.cluster_id}-internal"
   resource_group_name = data.azurerm_resource_group.main.name
   location            = var.azure_region
+  tags = local.tags
 
   dynamic "frontend_ip_configuration" {
     for_each = [for ip in [

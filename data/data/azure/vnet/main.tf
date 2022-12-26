@@ -50,6 +50,7 @@ resource "azurerm_storage_account" "cluster" {
   account_replication_type        = "LRS"
   min_tls_version                 = contains(local.environments_with_min_tls_version, var.azure_environment) ? "TLS1_2" : null
   allow_nested_items_to_be_public = false
+  tags                            = local.tags
 }
 
 resource "azurerm_user_assigned_identity" "main" {
@@ -57,6 +58,7 @@ resource "azurerm_user_assigned_identity" "main" {
   location            = data.azurerm_resource_group.main.location
 
   name = "${var.cluster_id}-identity"
+  tags = local.tags
 }
 
 resource "azurerm_role_assignment" "main" {
@@ -160,4 +162,3 @@ resource "azurerm_shared_image_version" "clustergen2_image_version" {
     regional_replica_count = 1
   }
 }
-
