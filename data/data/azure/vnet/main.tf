@@ -1,10 +1,4 @@
 locals {
-  tags = merge(
-    {
-      "kubernetes.io_cluster.${var.cluster_id}" = "owned"
-    },
-    var.azure_extra_tags,
-  )
   description = "Created By OpenShift Installer"
   # At this time min_tls_version is only supported in the Public Cloud and US Government Cloud.
   environments_with_min_tls_version = ["public", "usgovernment"]

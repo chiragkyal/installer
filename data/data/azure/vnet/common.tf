@@ -38,3 +38,13 @@ locals {
   virtual_network    = var.azure_preexisting_network ? data.azurerm_virtual_network.preexisting_virtual_network[0].name : azurerm_virtual_network.cluster_vnet[0].name
   virtual_network_id = var.azure_preexisting_network ? data.azurerm_virtual_network.preexisting_virtual_network[0].id : azurerm_virtual_network.cluster_vnet[0].id
 }
+
+// define commonly used local valus of this module
+locals {
+  tags = merge(
+    {
+      "kubernetes.io_cluster.${var.cluster_id}" = "owned"
+    },
+    var.azure_extra_tags,
+  )
+}

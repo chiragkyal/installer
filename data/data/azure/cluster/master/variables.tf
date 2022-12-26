@@ -131,12 +131,12 @@ EOF
 }
 
 variable "ultra_ssd_enabled" {
-  type = bool
+  type        = bool
   description = "Determines if the control plane should have UltraSSD Enabled."
 }
 
 variable "vm_networking_type" {
-  type = bool
+  type        = bool
   description = <<EOF
 networking_type specifies whether to enable accelerated networking. Accelerated networking
 enables single root I/O virtualization (SR-IOV) to a VM, greatly improving its networking performance.
